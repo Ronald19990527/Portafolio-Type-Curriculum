@@ -257,9 +257,17 @@ p {
 
 .modal-window-tutorship > .aside-content > .closed {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 25rem;
+  right: 0.6rem;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-window-tutorship > .aside-content > .closed {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
 }
 
 .modal-window-tutorship > .aside-content > .closed > svg {
