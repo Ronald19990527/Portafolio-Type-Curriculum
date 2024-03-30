@@ -1,3 +1,9 @@
+import checkoutFillField from "./checkout-fill-field.js";
+
+import submissionFormValidation from "./submission-form-validation.js";
+
+import textAreaSizeDinamic from "./text-area-size-dinamic.js";
+
 /* Menu Navigation */
 ((d) => {
   const $btnMenuNavigation = d.querySelector(".navBar"),
@@ -14,15 +20,18 @@
   });
 
   d.addEventListener("click", e => {
-    if (!e.target.matches(".menu-navigation > a")) {
-      return false;
+    if (e.target.matches(".menu-navigation > a")) {
+      $btnMenuNavigation.firstElementChild.classList.toggle("no-show-closed-navBar");
+
+      $btnMenuNavigation.lastElementChild.classList.toggle("no-show-closed-navBar");
+
+      $menuNavigation.classList.toggle("show-menu-navigation");
     }
+    else if (e.target.matches("#close-window")) {
+      d.getElementById("contacto").removeChild(d.getElementById("alert-form"));
 
-    $btnMenuNavigation.firstElementChild.classList.toggle("no-show-closed-navBar");
-
-    $btnMenuNavigation.lastElementChild.classList.toggle("no-show-closed-navBar");
-
-    $menuNavigation.classList.toggle("show-menu-navigation");
+      checkoutFillField("name", "email", "comments");
+    }
   });
 
   if (carouselMoveAuto) {
@@ -66,4 +75,8 @@
       });
     }
   });
+
+  textAreaSizeDinamic("comments");
+
+  submissionFormValidation("name", "email", "comments", "submit");
 })(document);

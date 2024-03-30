@@ -208,8 +208,9 @@ p {
   }
 }
 
-/* ModalWindowJobs */
-.modal-window-tutorship {
+/* ModalWindowJobs and ModalWindowForm */
+.modal-window-tutorship,
+.modal-alert-form {
   background-color: var(--black-alpha-color);
   position: fixed;
   top: 0;
@@ -439,6 +440,10 @@ progress::-moz-progress-value {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.delete-scroll {
+  overflow-y: hidden;
 }
 
 .font-size-family-086rem {

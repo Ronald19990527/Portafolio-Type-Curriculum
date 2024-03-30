@@ -822,22 +822,23 @@
           </div>
         </div>
       </article>
-      <form class="form" action="">
+      <form id="comments-form" name="comments-form" class="form"
+        action="https://formsubmit.co/ronaldhernandezdp@unimagdalena.edu.co" method="POST" target="_blank"
+        enctype="application/x-www-form-urlencoded">
         <div class="container-input">
-          <input class="input-style" type="text" name="name" placeholder="Enter your name *"
-            title="The name only accepts letters and white spaces" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
-          <input class="input-style" type="email" name="email" placeholder="Enter your email *" title="Email incorrect"
-            pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+          <input id="name" class="input-style" type="text" name="name" placeholder="Enter your name *">
+          <input id="email" class="input-style" type="email" name="email" placeholder="Enter your email *">
         </div>
-        <textarea name="coments" placeholder="Leave me your comments *" id=""></textarea>
-        <input class="btn font-size-family-086rem font-size-family-12rem" type="submit" value="SEND MESSSAGE">
+        <textarea name="comments" placeholder="Leave me your comments *" id="comments" class="delete-scroll"></textarea>
+        <input id="submit" class="btn font-size-family-086rem font-size-family-12rem" type="submit" name="submit"
+          value="SEND MESSSAGE">
       </form>
     </section>
   </main>
   <footer class="footer">
     <small>Site designed by <a href="https://github.com/Ronald19990527" target="_blank">@Ronald19990527</a></small>
   </footer>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 
 </html>
