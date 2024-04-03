@@ -1,3 +1,5 @@
+import { checkoutEmailField, checkoutNameField } from "./checkout-name-and-email-fields.js";
+
 export default function submissionFormValidation(name, email, comments, submit) {
   const createModalWindow = function(inputElement) {
     const $alertForm = document.createElement("aside"),
@@ -33,7 +35,7 @@ export default function submissionFormValidation(name, email, comments, submit) 
     $titleAlert.textContent = "ERROR SUBMIT FORM";
     $contentDescriptionAlertForm.style.setProperty("padding", "1rem");
     $contentDescriptionAlertForm.style.setProperty("border-top", "thin solid var(--gray-color)");
-    $descriptionAlertForm.textContent = `You're trying to send a form to my personal e-mail, but you forgot to fill out the ${inputElement} field, please, close this window and digital it`;
+    $descriptionAlertForm.textContent = inputElement;
     $closeWindowBtn.setAttribute("id", "close-window");
     $closeWindowBtn.setAttribute("class", "btn font-size-family-086rem font-size-family-12rem");
     $closeWindowBtn.textContent = "CLOSE WINDOW";
@@ -52,17 +54,28 @@ export default function submissionFormValidation(name, email, comments, submit) 
     var checkoutData = true;
 
     if (document.getElementById(name).value === "") {
-      createModalWindow("name");
+      createModalWindow("You're trying to send a form to my personal e-mail, but you forgot to fill out the name field, please, close this window and digital it");
 
       checkoutData = false;
     }
     else if (document.getElementById(email).value === "") {
-      createModalWindow("email");
+      createModalWindow("You're trying to send a form to my personal e-mail, but you forgot to fill out the email field, please, close this window and digital it");
 
       checkoutData = false;
     }
     else if (document.getElementById(comments).value === "") {
-      createModalWindow("comments");
+      createModalWindow("You're trying to send a form to my personal e-mail, but you forgot to fill out the comments field, please, close this window and digital it");
+
+      checkoutData = false;
+    }
+
+    if (checkoutData && !checkoutNameField("name")) {
+      createModalWindow("Invalid name format, only letters and whitespace are allowed");
+
+      checkoutData = false;
+    }
+    else if (checkoutData && !checkoutEmailField("email")) {
+      createModalWindow("Invalid email format, only letters and special characters like @, -, _, and .");
 
       checkoutData = false;
     }
